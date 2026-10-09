@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="AutoBridge — premium used and new cars. Search our curated vehicle catalogue.">
+  <title>AutoBridge — Find your next car</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="AutoBridge home">
+        <span>Auto<span>Bridge</span></span>
+      </a>
+      <nav class="main-nav">
+        <a class="active" href="index.html">Cars</a>
+        <a href="#how-it-works">How it works</a>
+        <a href="#about">About us</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-btn" id="savedBtn" aria-label="Saved cars">♡ <span>Saved</span></button>
+        <a class="sell-btn" href="#contact">Sell your car</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <p class="eyebrow">THE AUTOBRIDGE COLLECTION</p>
+        <h1>Find the car that<br><em>fits your journey.</em></h1>
+        <p class="hero-copy">Quality vehicles, transparent pricing and a straightforward buying experience.</p>
+        <div class="quick-search">
+          <label>
+            <span>Search</span>
+            <input id="keyword" type="search" placeholder="Make, model or keyword">
+          </label>
+          <button id="heroSearch">Search cars <span>→</span></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="catalogue-shell" id="catalogue">
+      <div class="catalogue-main">
+        <div class="catalogue-top">
+          <div>
+            <p class="eyebrow">AVAILABLE NOW</p>
+            <h2>Our vehicles <span id="resultCount">0</span></h2>
+          </div>
+          <div class="top-controls">
+            <button class="mobile-filter-btn" id="mobileFilterBtn">☷ Filters</button>
+            <label class="sort-wrap">Sort by
+              <select id="sort">
+                <option value="recommended">Recommended</option>
+                <option value="price-low">Price: low to high</option>
+                <option value="price-high">Price: high to low</option>
+                <option value="newest">Newest first</option>
+                <option value="mileage">Lowest mileage</option>
+              </select>
+            </label>
+          </div>
+        </div>
+        <div class="active-filters" id="activeFilters"></div>
+        <div class="car-list" id="carList"></div>
+        <div class="pagination" id="pagination"></div>
+      </div>
+
+      <aside class="filter-panel" id="filterPanel">
+        <div class="filter-head">
+          <div><p class="eyebrow">REFINE</p><h3>Filter vehicles</h3></div>
+          <button id="closeFilters" class="close-filter">×</button>
+        </div>
+
+        <div class="filter-section">
+          <label class="field-label">Make</label>
+          <select id="make"><option value="">All makes</option></select>
+          <label class="field-label">Model</label>
+          <select id="model"><option value="">All models</option></select>
+        </div>
+
+        <div class="filter-section">
+          <label class="field-label">Price</label>
+          <div class="two-fields">
+            <input id="minPrice" type="number" placeholder="From €">
+            <input id="maxPrice" type="number" placeholder="To €">
+          </div>
+        </div>
+
+        <div class="filter-section">
+          <label class="field-label">First registration</label>
+          <div class="two-fields">
+            <input id="minYear" type="number" placeholder="From">
+            <input id="maxYear" type="number" placeholder="To">
+          </div>
+        </div>
+
+        <div class="filter-section">
+          <label class="field-label">Mileage</label>
+          <div class="two-fields">
+            <input id="minMileage" type="number" placeholder="From km">
+            <input id="maxMileage" type="number" placeholder="To km">
+          </div>
+        </div>
+
+        <div class="filter-section">
+          <label class="field-label">Fuel type</label>
+          <div class="check-grid" id="fuelOptions">
+            <label><input type="checkbox" value="Petrol"> Petrol</label>
+            <label><input type="checkbox" value="Diesel"> Diesel</label>
+            <label><input type="checkbox" value="Hybrid"> Hybrid</label>
+            <label><input type="checkbox" value="Electric"> Electric</label>
+          </div>
+        </div>
+
+        <div class="filter-section">
+          <label class="field-label">Body type</label>
+          <div class="check-grid" id="bodyOptions">
+            <label><input type="checkbox" value="SUV"> SUV</label>
+            <label><input type="checkbox" value="Saloon"> Saloon</label>
+            <label><input type="checkbox" value="Estate"> Estate</label>
+            <label><input type="checkbox" value="Coupe"> Coupe</label>
+          </div>
+        </div>
+
+        <div class="filter-section">
+          <label class="field-label">Transmission</label>
+          <div class="check-grid">
+            <label><input name="transmission" type="radio" value=""> Any</label>
+            <label><input name="transmission" type="radio" value="Automatic"> Automatic</label>
+            <label><input name="transmission" type="radio" value="Manual"> Manual</label>
+          </div>
+        </div>
+
+        <div class="filter-section">
+          <label class="field-label">Key features</label>
+          <div class="check-grid">
+            <label><input id="warranty" type="checkbox"> Warranty</label>
+            <label><input id="oneOwner" type="checkbox"> 1 owner</label>
+            <label><input id="service" type="checkbox"> Full history</label>
+            <label><input id="camera" type="checkbox"> Rear camera</label>
+          </div>
+        </div>
+
+        <button class="primary-btn full" id="applyFilters">Apply filters</button>
+        <button class="reset-btn" id="resetFilters">Reset all filters</button>
+      </aside>
+    </section>
+
+    <section class="trust-section" id="how-it-works">
+      <div class="section-heading"><p class="eyebrow">THE AUTOBRIDGE STANDARD</p><h2>A better way to buy a car.</h2></div>
+      <div class="trust-grid">
+        <article><span>01</span><h3>Curated selection</h3><p>Every vehicle is selected for condition, specification and value.</p></article>
+        <article><span>02</span><h3>Transparent pricing</h3><p>No games. The price you see is the price we stand behind.</p></article>
+        <article><span>03</span><h3>Personal support</h3><p>From first enquiry to handover, our team is here when you need us.</p></article>
+      </div>
+    </section>
+
+    <section class="contact-band" id="contact">
+      <div><p class="eyebrow">READY WHEN YOU ARE</p><h2>Have a car in mind?</h2><p>Talk to an AutoBridge specialist about your next vehicle.</p></div>
+      <a class="light-btn" id="contactEmail" href="#">hello@autobridge.example →</a>
+    </section>
+
+    <section class="about-section" id="about">
+      <p class="eyebrow">ABOUT AUTOBRIDGE</p>
+      <h2>Confidence from<br>search to steering wheel.</h2>
+      <p>AutoBridge is a concept dealership experience built around a simple idea: buying a car should feel considered, clear and modern.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <a class="brand" href="index.html"><span>Auto<span>Bridge</span></span></a>
+      <p>© 2026 AutoBridge. All rights reserved.</p>
+      <div><a href="#">Privacy</a><a href="#">Legal notice</a></div>
+    </div>
+  </footer>
+
+  <div class="overlay" id="overlay"></div>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
